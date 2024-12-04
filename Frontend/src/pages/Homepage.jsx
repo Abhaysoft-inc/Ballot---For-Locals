@@ -10,7 +10,7 @@ export default function Homepage() {
 
     // Fetch issues from the API
     useEffect(() => {
-        axios.get('http://localhost:3000/api/issues/fetch')
+        axios.get('https://ballot-for-locals.onrender.com/api/issues/fetch')
             .then(response => {
                 setIssues(response.data.issues);
             })

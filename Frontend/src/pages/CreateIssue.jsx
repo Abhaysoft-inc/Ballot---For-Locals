@@ -36,7 +36,7 @@ const CreateIssueForm = () => {
         formDataToSend.append('description', formData.description);
 
         // Make the API call to the backend to submit the form
-        fetch('http://localhost:3000/api/issues/create', {
+        fetch('https://ballot-for-locals.onrender.com/api/issues/create', {
             method: 'POST',
             body: formDataToSend,
         })

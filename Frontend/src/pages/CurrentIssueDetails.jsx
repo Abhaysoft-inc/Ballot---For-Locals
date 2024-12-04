@@ -15,7 +15,7 @@ const IssueDetailsPage = () => {
     useEffect(() => {
         const fetchIssueDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/issues/${id}`); // Fetch specific issue by ID
+                const response = await axios.get(`https://ballot-for-locals.onrender.com/api/issues/${id}`); // Fetch specific issue by ID
                 const fetchedIssue = response.data;
 
                 setIssue(fetchedIssue);
@@ -34,7 +34,7 @@ const IssueDetailsPage = () => {
     const handleAddComment = async () => {
         if (newComment.trim()) {
             try {
-                await axios.post(`http://localhost:3000/api/issues/${id}/comments`, { text: newComment });
+                await axios.post(`https://ballot-for-locals.onrender.com/api/issues/${id}/comments`, { text: newComment });
                 setComments([...comments, { author: "You", text: newComment }]);
                 setNewComment("");
             } catch (error) {
@@ -46,7 +46,7 @@ const IssueDetailsPage = () => {
     // Voting functions
     const handleUpvote = async () => {
         try {
-            await axios.post(`http://localhost:3000/api/issues/${id}/upvote`);
+            await axios.post(`https://ballot-for-locals.onrender.com/api/issues/${id}/upvote`);
             setUpvotes(upvotes + 1);
         } catch (error) {
             console.error('Error upvoting:', error);
@@ -55,7 +55,7 @@ const IssueDetailsPage = () => {
 
     const handleDownvote = async () => {
         try {
-            await axios.post(`http://localhost:3000/api/issues/${id}/downvote`);
+            await axios.post(`https://ballot-for-locals.onrender.com/api/issues/${id}/downvote`);
             setDownvotes(downvotes + 1);
         } catch (error) {
             console.error('Error downvoting:', error);
